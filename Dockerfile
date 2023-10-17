@@ -1,10 +1,11 @@
 # Use an official Node.js runtime as a parent image
 FROM node:latest
 
-# Set the working directory to /usr/src/app
+# Set the working directory to /app
 WORKDIR /app
 
-RUN sudo apt install ffmpeg
+# Install ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
